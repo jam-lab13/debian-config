@@ -9,9 +9,14 @@
 ## Specific IP allowed to connect to this host:
 # IP="192.168.1.100"
 
+# Fix Wifi
+sudo echo "options iwlwifi led_mode=1 power_save=0 swcrypto=1 bt_coex_active=0 11n_disable=8" > /etc/modprobe.d/iwlwifi.conf
+
 # Basics
 sudo apt update
 sudo apt install -y nala && sudo nala upgrade
+sudo nala --install-completion bash
+sudo nala --show-completion bash
 # Only keep the top 5 fastest mirrors
 # sudo nala fetch 1,2,3,4,5
 
@@ -52,7 +57,7 @@ sudo echo "0 3 * * * /usr/bin/flatpak upgrade -y" >> /etc/crontab
 exit
 
 # Adding Packages
-sudo nala install -y preload firmware-linux firmware-linux-nonfree firmware-misc-nonfree firmware-realtek build-essential ufw pcscd "7zip" vim flatpak snapd timeshift xrdp ssh steam-devices neofetch fonts-liberation synaptic nvidia-driver
+sudo nala install -y htop curl preload firmware-linux firmware-linux-nonfree firmware-misc-nonfree firmware-realtek build-essential ufw pcscd "7zip" vim flatpak snapd timeshift xrdp ssh steam-devices neofetch fonts-liberation synaptic nvidia-driver
 
 ### Removing and Cleaning Packages
 ## Remove KDE Apps/Bloatware
