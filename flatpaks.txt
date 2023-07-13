@@ -1,0 +1,17 @@
+com.bitwarden.desktop
+com.brave.Browser
+com.discordapp.Discord
+com.github.tchx84.Flatseal
+com.jetbrains.PyCharm-Community
+com.jgraph.drawio.desktop
+com.protonvpn.www
+com.spotify.Client
+com.usebottles.bottles
+com.valvesoftware.Steam
+com.vscodium.codium
+md.obsidian.Obsidian
+org.flameshot.Flameshot
+org.gtk.Gtk3theme.Breeze
+org.libreoffice.LibreOffice
+org.remmina.Remmina
+org.videolan.VLC
