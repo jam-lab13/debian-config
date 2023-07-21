@@ -113,3 +113,7 @@ sudo nala install -y vsmartcard-vpcd pcsc-tools coolkey librust-pcsc-dev
 sudo systemctl enable pcscd
 sudo systemctl start pcscd
 
+### Grab Veikk Stylus Driver
+wget https://veikk.com/image/catalog/Software/vktabletUbuntu-1.0.3-2-x86_64.zip?v=1660637356
+unzip ~/Downloads/vktabletUbuntu-1.0.3-2-x86_64.zip
+sudo dpkg -i vktabletUbuntu-1.0.3-2-x86_64.deb
