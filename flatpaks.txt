@@ -1,6 +1,7 @@
 com.bitwarden.desktop
 com.brave.Browser
 com.discordapp.Discord
+com.getpostman.Postman
 com.github.tchx84.Flatseal
 com.jetbrains.PyCharm-Community
 com.jgraph.drawio.desktop

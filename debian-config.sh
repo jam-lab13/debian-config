@@ -105,11 +105,6 @@ sudo ufw enable
 ### Prep for Downloads
 cd ~/Downloads
 
-### Install Java
-wget https://javadl.oracle.com/webapps/download/AutoDL?BundleId=248763_8c876547113c4e4aab3c868e9e0ec572
-
-
-
 ### VMWare Horizon Client (AFRC VPN)
 wget https://download3.vmware.com/software/CART24FQ1_LIN64_2303/VMware-Horizon-Client-2303-8.9.0-21435420.x64.bundle
 chmod +x ~/Downloads/VMWare-Horizon-Client-2303-8.9.0-21435420.x64.bundle
@@ -130,6 +125,4 @@ sudo dpkg -i vktabletUbuntu-1.0.3-2-x86_64.deb
 wget https://software.sonicwall.com/NetExtender/NetExtender.Linux-10.2.845.x86_64.tgz
 tar zxvf ~/Downloads/NetExtender.Linux-10.2.845.x86_64.tgz
 sudo ./netExtenderClient/install
-
-
 

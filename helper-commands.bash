@@ -1,5 +1,5 @@
 # Flatpak list export
-flatpak list --columns=app | grep -iv freedesktop | grep -iv platform | grep -iv wine | grep -iv kde > ~/Documents/code-projects/debian-config/flatpaks.txt
+flatpak list --columns=app | grep -iv freedesktop | grep -iv platform | grep -iv wine | grep -iv kde > ~/Documents/code-projects/git/git-repos/debian-config/flatpaks.txt
 
 ### Setup Login Screen
 # List your screens
