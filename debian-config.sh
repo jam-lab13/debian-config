@@ -57,7 +57,7 @@ sudo echo "0 3 * * * /usr/bin/flatpak upgrade -y" >> /etc/crontab
 exit
 
 # Adding Packages
-sudo nala install -y htop curl preload firmware-linux firmware-linux-nonfree firmware-misc-nonfree firmware-realtek build-essential ufw pcscd "7zip" vim flatpak snapd timeshift xrdp ssh steam-devices neofetch fonts-liberation synaptic nvidia-driver
+sudo nala install -y default-jre htop curl preload firmware-linux firmware-linux-nonfree firmware-misc-nonfree firmware-realtek build-essential ufw pcscd "7zip" vim flatpak snapd timeshift xrdp ssh steam-devices neofetch fonts-liberation synaptic nvidia-driver
 
 ### Removing and Cleaning Packages
 ## Remove KDE Apps/Bloatware
@@ -102,7 +102,15 @@ sudo ufw enable
 # sudo ufw allow from $LAN
 # sudo ufw allow from $IP
 
-# VMWare Horizon Client (AFRC VPN)
+### Prep for Downloads
+cd ~/Downloads
+
+### Install Java
+wget https://javadl.oracle.com/webapps/download/AutoDL?BundleId=248763_8c876547113c4e4aab3c868e9e0ec572
+
+
+
+### VMWare Horizon Client (AFRC VPN)
 wget https://download3.vmware.com/software/CART24FQ1_LIN64_2303/VMware-Horizon-Client-2303-8.9.0-21435420.x64.bundle
 chmod +x ~/Downloads/VMWare-Horizon-Client-2303-8.9.0-21435420.x64.bundle
 sudo ~/Downloads/VMWare-Horizon-Client-2303-8.9.0-21435420.x64.bundle
@@ -117,3 +125,11 @@ sudo systemctl start pcscd
 wget https://veikk.com/image/catalog/Software/vktabletUbuntu-1.0.3-2-x86_64.zip?v=1660637356
 unzip ~/Downloads/vktabletUbuntu-1.0.3-2-x86_64.zip
 sudo dpkg -i vktabletUbuntu-1.0.3-2-x86_64.deb
+
+### SonicWall NetExtender   
+wget https://software.sonicwall.com/NetExtender/NetExtender.Linux-10.2.845.x86_64.tgz
+tar zxvf ~/Downloads/NetExtender.Linux-10.2.845.x86_64.tgz
+sudo ./netExtenderClient/install
+
+
+
