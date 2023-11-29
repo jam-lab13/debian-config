@@ -57,7 +57,7 @@ sudo echo "0 3 * * * /usr/bin/flatpak upgrade -y" >> /etc/crontab
 exit
 
 # Adding Packages
-sudo nala install -y default-jre htop curl preload firmware-linux firmware-linux-nonfree firmware-misc-nonfree firmware-realtek build-essential ufw pcscd "7zip" vim flatpak snapd timeshift xrdp ssh steam-devices neofetch fonts-liberation synaptic nvidia-driver
+sudo nala install -y ncdu virtualbox virtualbox-guest-additions-iso default-jre htop curl preload firmware-linux firmware-linux-nonfree firmware-misc-nonfree firmware-realtek build-essential ufw pcscd "7zip" vim flatpak snapd timeshift xrdp ssh steam-devices neofetch fonts-liberation synaptic nvidia-driver
 
 ### Removing and Cleaning Packages
 ## Remove KDE Apps/Bloatware
@@ -96,6 +96,7 @@ for i in $(cat flatpaks.txt); do sudo flatpak install -y $i; done
 
 # Snaps
 # lol, jk.
+sudo snap install helm --classic
 
 # ufw enable - tune to your local lan
 sudo ufw enable
@@ -109,12 +110,35 @@ cd ~/Downloads
 wget https://download3.vmware.com/software/CART24FQ1_LIN64_2303/VMware-Horizon-Client-2303-8.9.0-21435420.x64.bundle
 chmod +x ~/Downloads/VMWare-Horizon-Client-2303-8.9.0-21435420.x64.bundle
 sudo ~/Downloads/VMWare-Horizon-Client-2303-8.9.0-21435420.x64.bundle
+sudo ln -s /usr/lib64/pkcs11/opensc-pkcs11.so 
+				/usr/lib/vmware/view/pkcs11/libopenscpkcs11.so
 
 ### CAC Reader and DOD CA crap
+
+## You must use firefox ESR/deb. Here is the cac script that works:
+# git clone https://github.com/jdjaxon/linux_cac.git
+
 # Smart Card Packages   
-sudo nala install -y vsmartcard-vpcd pcsc-tools coolkey librust-pcsc-dev 
-sudo systemctl enable pcscd
-sudo systemctl start pcscd
+#sudo nala install -y vsmartcard-vpcd pcsc-tools coolkey librust-pcsc-dev 
+#opensc-pkcs11 libpam-pkcs11
+#sudo cp /usr/share/doc/libpam-pkcs11/examples/pam_pkcs11.conf.example pkcs11.conf
+#cd
+#modutil -dbdir sql:.pki/nssdb/ -add "CAC Module" -libfile /usr/lib/libcackey.so
+#modutil -dbdir sql:.pki/nssdb/ -list
+### Make these changes:
+#use_pkcs11_module = opensc;
+#module = /usr/lib/x86_64-linux-gnu/opensc-pkcs11.so;
+#cert_policy = ca,signature,oscp_on;
+
+
+#sudo systemctl enable pcscd
+#sudo systemctl start pcscd
+#wget https://dl.dod.cyber.mil/wp-content/uploads/pki-pke/zip/unclass-certificates_pkcs7_v5-6_dod.zip
+#unzip unclass-certificates_pkcs7_v5-6_dod.zip
+# Browse to: brave://settings/certificates?search=cert
+# Navigate to Authorities > Import > Switch filter to "All Files" > Select *DoD.der.p7b > Check all 3 boxes
+#sudo modutil -dbdir sql:.pki/nssdb/ -add "CAC Module" -libfile /usr/lib/pkcs11/libcoolkeypk11.so
+
 
 ### Grab Veikk Stylus Driver
 wget https://veikk.com/image/catalog/Software/vktabletUbuntu-1.0.3-2-x86_64.zip?v=1660637356
@@ -126,3 +150,12 @@ wget https://software.sonicwall.com/NetExtender/NetExtender.Linux-10.2.845.x86_6
 tar zxvf ~/Downloads/NetExtender.Linux-10.2.845.x86_64.tgz
 sudo ./netExtenderClient/install
 
+### Change SDDM background
+## Copy new image to:
+# /usr/share/sddm/themes/breeze
+## Modify theme.conf
+# printf "\n[General]\nbackground=/usr/share/sddm/themes/breeze/<your-new-wallpaper>\ntype=image" >> /usr/share/sddm/themes/breeze/theme.conf
+# sudo systemctl restart sddm.service
+
+### Grub menu background
+# /usr/share/images/desktop-base/desktop-grub.png
